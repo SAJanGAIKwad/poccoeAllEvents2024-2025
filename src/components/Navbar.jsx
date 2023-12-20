@@ -29,7 +29,7 @@ const Navbar = () => {
                                 <Link to='/contact' className='nav__link'>Contact</Link>
                             </li>
                         </ul>
-                        <Link to='/login'>
+                        <Link to='/admin-user-login'>
                             <button className='login__btn'>Login</button>
                         </Link>
                     </div>
