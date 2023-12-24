@@ -23,7 +23,7 @@ const LoginG = () => {
         axios.post('http://localhost:3001/register', { name, email, password })
             .then(result => {
                 console.log(result)
-                navigate('/login')
+                navigate('/')
             })
             .catch(err => console.log(err))
     }

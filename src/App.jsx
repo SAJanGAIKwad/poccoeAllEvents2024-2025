@@ -6,8 +6,7 @@ import Event from './pages/Event';
 import { BrowserRouter as BroweRouter, Routes, Route } from "react-router-dom"
 import UserMenu from './pages/UserMenu';
 import GTop from './components/Gtop';
-import Bg from './components/Bg';
-import IntroEvent from './pages/IntroEvent';
+import LoginG from './pages/LoginG';
 
 function App() {
   return (
@@ -18,11 +17,10 @@ function App() {
         <Route exact path='/about' element={<About />}></Route>
         <Route exact path='/Event' element={<Event />}></Route>
         <Route exact path='/contact' element={<Contact />}></Route>
-        <Route exact path='/admin-user-login' element={<IntroEvent />}></Route>
+        <Route exact path='/admin-user-login' element={<LoginG />}></Route>
         <Route exact path='/user' element={<UserMenu />}></Route>
       </Routes>
       <GTop />
-      <Bg />
     </BroweRouter>
   );
 }
