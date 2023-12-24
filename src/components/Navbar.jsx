@@ -1,42 +1,86 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../components_css/Navbar.css';
-import logo from '../Images/logo.png';
-import { Link } from 'react-router-dom';
-import { CgMenuGridO} from 'react-icons/cg';
+import { NavLink } from 'react-router-dom';
+import { CodeIcon, HamburgetMenuClose, HamburgetMenuOpen } from "../components/Icons";
 const Navbar = () => {
+    const [click, setClick] = useState(false);
+
+    const handleClick = () => setClick(!click);
     return (
-        <div>
-            <header className='header'>
-                <nav className='nav Ncontainer'>
-                    <Link to='#' className='nav__logo'>
-                        <img src={logo} alt='' className='nav__logo-img'></img>
-                    </Link>
-                    <div className='nav__menu' id='nav-menu'>
-                        <ul className='nav__list'>
-                            <li>
-                                <Link to="/" className='nav__link' >Home</Link>
-                            </li>
+        <>
+            <nav className="navbar">
+                <div className="nav-container">
+                    <NavLink exact to="/" className="nav-logo">
+                        <span className="icon">
+                            <CodeIcon />
+                        </span>
+                        <span>Evento</span>
+                    </NavLink>
 
-                            <li className='nav--item'>
-                                <Link to='/about' className='nav__link'>About</Link>
-                            </li>
+                    <ul className={click ? "nav-menu active" : "nav-menu"}>
+                        <li className="nav-item">
+                            <NavLink
+                                exact
+                                to="/"
+                                activeclassname="active"
+                                className="nav-links"
+                                onClick={handleClick}
+                            >
+                                Home
+                            </NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink
+                                exact
+                                to="/about"
+                                activeclassname="active"
+                                className="nav-links"
+                                onClick={handleClick}
+                            >
+                                About
+                            </NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink
+                                exact
+                                to="/event"
+                                activeclassname="active"
+                                className="nav-links"
+                                onClick={handleClick}
+                            >
+                                Event
+                            </NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink
+                                exact
+                                to="/contact"
+                                activeclassname="active"
+                                className="nav-links"
+                                onClick={handleClick}
+                            >
+                                Contact Us
+                            </NavLink>
+                        </li>
+                        <NavLink to='/admin-user-login'>
+                                <button className='login__btn'>Login</button>
+                            </NavLink>
+                    </ul>
+                    <div className="nav-icon" onClick={handleClick}>
 
-                            <li className='nav--item'>
-                                <Link to='/Event' className='nav__link'>Event</Link>
-                            </li>
-
-                            <li className='nav--item'>
-                                <Link to='/contact' className='nav__link'>Contact</Link>
-                            </li>
-                        </ul>
-                        <Link to='/admin-user-login'>
-                            <button className='login__btn'>Login</button>
-                        </Link>
+                        {click ? (
+                            <span className="icon">
+                                <HamburgetMenuOpen />{" "}
+                            </span>
+                        ) : (
+                            <span className="icon">
+                                <HamburgetMenuClose />
+                            </span>
+                        )}
                     </div>
-                        <CgMenuGridO className='menu-btn'/>
-                </nav>
-            </header>
-        </div>
+                </div>
+            </nav>
+        </>
     )
 }
 
