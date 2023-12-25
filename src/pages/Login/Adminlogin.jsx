@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
-import '../App.css';
-import * as Components from '../Components';
+import '../../App.css';
+import * as Components from '../../Components';
 import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
 import jwt_decode from "jwt-decode";
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-const LoginG = () => {
+const Adminlogin = () => {
     function showAlert1() {
         toast.success("SuccessFully! Registered");
     }
@@ -115,4 +115,4 @@ const LoginG = () => {
     )
 }
 
-export default LoginG
+export default Adminlogin

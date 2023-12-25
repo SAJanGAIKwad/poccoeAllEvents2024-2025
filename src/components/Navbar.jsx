@@ -65,7 +65,7 @@ const Navbar = () => {
                         <li className="nav-item">
                             <NavLink
                                 exact
-                                to="/admin-user-login"
+                                to="/login"
                                 activeclassname="active"
                                 className="nav-links"
                                 onClick={handleClick}

@@ -4,9 +4,10 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Event from './pages/Event';
 import { BrowserRouter as BroweRouter, Routes, Route } from "react-router-dom"
-import UserMenu from './pages/UserMenu';
 import GTop from './components/Gtop';
-import LoginG from './pages/LoginG';
+import LoginG from './pages/Login/LoginG';
+import Userlogin from './pages/Login/Userlogin';
+import Adminlogin from './pages/Login/adminlogin';
 
 function App() {
   return (
@@ -17,8 +18,9 @@ function App() {
         <Route exact path='/about' element={<About />}></Route>
         <Route exact path='/Event' element={<Event />}></Route>
         <Route exact path='/contact' element={<Contact />}></Route>
-        <Route exact path='/admin-user-login' element={<LoginG />}></Route>
-        <Route exact path='/user' element={<UserMenu />}></Route>
+        <Route exact path='/login' element={<LoginG />}></Route>
+        <Route exact path='/user' element={<Userlogin />}></Route>
+        <Route exact path='/admin' element={<Adminlogin />}></Route>
       </Routes>
       <GTop />
     </BroweRouter>
