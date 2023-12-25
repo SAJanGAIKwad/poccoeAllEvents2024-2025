@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../pages_css/Event_Page_CSS/EventCard.css';
-import Imag from '../../../public/images/event-image.jpg';
+import Imag from '../../../src/Images/event-image.jpg';
 
 const EventCard = ({ event }) => (
   <div className="event-card">
