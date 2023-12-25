@@ -62,19 +62,27 @@ const Navbar = () => {
                                 Contact Us
                             </NavLink>
                         </li>
-                        <NavLink to='/admin-user-login'>
-                                <button className='login__btn'>Login</button>
+                        <li className="nav-item">
+                            <NavLink
+                                exact
+                                to="/admin-user-login"
+                                activeclassname="active"
+                                className="nav-links"
+                                onClick={handleClick}
+                            >
+                                Login
                             </NavLink>
+                        </li>
                     </ul>
                     <div className="nav-icon" onClick={handleClick}>
 
                         {click ? (
                             <span className="icon">
-                                <HamburgetMenuOpen />{" "}
+                                <HamburgetMenuClose />
                             </span>
                         ) : (
                             <span className="icon">
-                                <HamburgetMenuClose />
+                                <HamburgetMenuOpen />{" "}
                             </span>
                         )}
                     </div>
