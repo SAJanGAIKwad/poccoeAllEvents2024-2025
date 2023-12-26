@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
-import '../App.css';
-import * as Components from '../Components';
+import '../../App.css';
+import * as Components from '../../Components';
 import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
 import jwt_decode from "jwt-decode";
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-const LoginG = () => {
+const Adminlogin = () => {
     function showAlert1() {
         toast.success("SuccessFully! Registered");
     }
@@ -16,14 +16,15 @@ const LoginG = () => {
     }
     const [name, setName] = useState()
     const [email, setEmail] = useState()
+    const [mobile, setMobile] = useState()
     const [password, setPassword] = useState()
     const navigate = useNavigate()
     const handleSubmit1 = (e) => {
         e.preventDefault()
-        axios.post('http://localhost:3001/register', { name, email, password })
+        axios.post('http://localhost:3001/register', { name, email, mobile, password })
             .then(result => {
                 console.log(result)
-                navigate('/login')
+                navigate('/')
             })
             .catch(err => console.log(err))
     }
@@ -54,6 +55,7 @@ const LoginG = () => {
                             <Components.Title >Create Account</Components.Title>
                             <Components.Input type='text' placeholder='Name' onChange={(e) => setName(e.target.value)} required />
                             <Components.Input type='email' placeholder='Email' onChange={(e) => setEmail(e.target.value)} required />
+                            <Components.Input type='mobile' placeholder='Mobile' onChange={(e) => setMobile(e.target.value)} required />
                             <Components.Input type='password' placeholder='Password' onChange={(e) => setPassword(e.target.value)} required />
                             <Components.Button onClick={showAlert1}>Sign Up</Components.Button>
                         </Components.Form>
@@ -113,4 +115,4 @@ const LoginG = () => {
     )
 }
 
-export default LoginG
+export default Adminlogin
