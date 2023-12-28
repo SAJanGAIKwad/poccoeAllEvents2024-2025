@@ -11,10 +11,10 @@ const UserMenu = () => {
                 <div className="dropdown-menu">
                     <ul>
                         <li className="dropdown-item">
-                            <Link exact to="/user" className="nav-links">User Login</Link>
+                            <Link exact to="/user-login" className="nav-links">User Login</Link>
                         </li>
                         <li className="dropdown-item">
-                            <Link exact to="/admin" className="nav-links">Admin Login</Link>
+                            <Link exact to="/admin-login" className="nav-links">Admin Login</Link>
                         </li>
                     </ul>
                 </div>

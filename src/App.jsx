@@ -6,9 +6,11 @@ import Event from './pages/Event';
 import { BrowserRouter as BroweRouter, Routes, Route } from "react-router-dom"
 import GTop from './components/Gtop';
 import LoginG from './pages/Login/LoginG';
-import Userlogin from './pages/Login/Userlogin';
-import Adminlogin from './pages/Login/adminlogin';
-
+import Ulogin from './pages/User-Login/Login';
+import Uregister from './pages/User-Login/Register';
+import Alogin from './pages/Admin-Login/Login';
+import Aregister from './pages/Admin-Login/Register';
+import "./App.css"
 function App() {
   return (
     <BroweRouter>
@@ -19,8 +21,10 @@ function App() {
         <Route exact path='/Event' element={<Event />}></Route>
         <Route exact path='/contact' element={<Contact />}></Route>
         <Route exact path='/login' element={<LoginG />}></Route>
-        <Route exact path='/user' element={<Userlogin />}></Route>
-        <Route exact path='/admin' element={<Adminlogin />}></Route>
+        <Route exact path='/user-login' element={<Ulogin/>}></Route>
+        <Route exact path='/admin-login' element={<Alogin />}></Route>
+        <Route exact path='/user-register' element={<Uregister/>}></Route>
+        <Route exact path='/Admin-register' element={<Aregister/>}></Route>
       </Routes>
       <GTop />
     </BroweRouter>
