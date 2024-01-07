@@ -2,10 +2,9 @@ import {useContext, useState} from "react";
 import {UserContext} from "../UserContext.jsx";
 import {Navigate, useParams} from "react-router-dom";
 import axios from "axios";
-// import PlacesPage from "./PlacesPage";
 import AccountNav from "./AccountNav.jsx";
 
-export default function ProfilePage() {
+export default function AccountPage() {
   const [redirect,setRedirect] = useState(null);
   const {ready,user,setUser} = useContext(UserContext);
   let {subpage} = useParams();
@@ -14,7 +13,7 @@ export default function ProfilePage() {
   }
 
   async function logout() {
-    await axios.post('/logout');
+    await axios.post('http://localhost:3001/logout');
     setRedirect('/');
     setUser(null);
   }
@@ -39,9 +38,6 @@ export default function ProfilePage() {
           <button onClick={logout} className="primary max-w-sm mt-2">Logout</button>
         </div>
       )}
-      {/* {subpage === 'places' && (
-        <PlacesPage />
-      )} */}
     </div>
   );
 }
