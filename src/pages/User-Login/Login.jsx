@@ -1,35 +1,28 @@
-import React, { useState } from 'react'
+import React, {useContext, useState } from 'react'
 import '../../App.css';
 import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
 import jwt_decode from "jwt-decode";
-import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Link } from 'react-router-dom';
-const Userlogin = () => {
-    function showError() {
-        toast.error('Please Check Email and Password Again');
-    }
+import { Link, Navigate } from 'react-router-dom';
+import { UserContext } from "../../UserContext";
+const Login = () => {
+    
     const [email, setEmail] = useState()
     const [password, setPassword] = useState()
-    const navigate = useNavigate()
+    const { setUser } = useContext(UserContext);
+    const [redirect, setRedirect] = useState(false);
 
-    const handleSubmit = (e) => {
+    async function handleSubmit  (e) {
         e.preventDefault()
-        axios.post('http://localhost:3001/login', { email, password })
-            .then(result => {
-                console.log(result)
-                if (result.data === "Success") {
-                    navigate('/')
-                }
-                else {
-                    showError()
-                }
-            })
-            .catch(err =>
-                console.log(err),
-            )
+       const {data} = await axios.post('http://localhost:3001/login', { email, password })
+       setUser(data);
+       setRedirect(true);
+       alert('Login successful');
+    }
+    if (redirect) {
+        return <Navigate to={'/'} />
     }
     return (
         <>
@@ -70,4 +63,4 @@ const Userlogin = () => {
     )
 }
 
-export default Userlogin
+export default Login
