@@ -11,10 +11,10 @@ import Uregister from '../src/pages/User-Login/Register';
 import Alogin from './pages/Admin-Login/Login';
 import Aregister from './pages/Admin-Login/Register';
 import { UserContextProvider } from './UserContext';
-import ProfilePage from './pages/ProfilePage';
-// import axios from 'axios';
+import AccountPage from './pages/AccountPage';
+import axios from 'axios';
 import "./App.css"
-// axios.defaults.withCredentials = true;
+axios.defaults.withCredentials = true;
 function App() {
   return (
     <UserContextProvider>
@@ -26,11 +26,11 @@ function App() {
           <Route exact path='/Event' element={<Event />}></Route>
           <Route exact path='/contact' element={<Contact />}></Route>
           <Route exact path='/login' element={<LoginG />}></Route>
+          <Route path="/account" element={<AccountPage/>} />
           <Route exact path='/user-login' element={<Ulogin />}></Route>
           <Route exact path='/admin-login' element={<Alogin />}></Route>
           <Route exact path='/user-register' element={<Uregister />}></Route>
           <Route exact path='/Admin-register' element={<Aregister />}></Route>
-          <Route path="/account" element={<ProfilePage/>} />
         </Routes>
         <GTop />
       </BroweRouter>
