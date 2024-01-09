@@ -28,7 +28,7 @@ const Login = () => {
         <>
             <ToastContainer />
             <div className="mt-4 grow flex items-center justify-around ">
-                <div className="mb-64 shadow-2xl rounded-lg p-10">
+                <div className="mb-64 shadow-2xl rounded-lg p-10 ">
                     <h1 className="text-4xl text-center mb-4">Login</h1>
                     <form className="max-w-sm mx-auto" onSubmit={handleSubmit}>
                         <input type="email"

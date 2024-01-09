@@ -3,7 +3,7 @@ import '../../pages_css/Event_Page_CSS/EventCard.css';
 import Imag from '../../../src/Images/event-image.jpg';
 
 const EventCard = ({ event }) => (
-  <div className="event-card">
+  <div className="event-card z-20">
 
     <div className="event-card-image">
         <img src={Imag} alt="Event" />
