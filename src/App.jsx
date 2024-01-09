@@ -12,6 +12,7 @@ import Alogin from './pages/Admin-Login/Login';
 import Aregister from './pages/Admin-Login/Register';
 import { UserContextProvider } from './UserContext';
 import AccountPage from './pages/AccountPage';
+// import Footer from './pages/Footer'
 import axios from 'axios';
 import "./App.css"
 axios.defaults.withCredentials = true;
@@ -19,7 +20,7 @@ function App() {
   return (
     <UserContextProvider>
       <BroweRouter>
-        <Navbar />
+        <Navbar/>
         <Routes>
           <Route exact path='/' element={<Home />}></Route>
           <Route exact path='/about' element={<About />}></Route>
@@ -34,6 +35,7 @@ function App() {
         </Routes>
         <GTop />
       </BroweRouter>
+      {/* <Footer/> */}
     </UserContextProvider>
   );
 }

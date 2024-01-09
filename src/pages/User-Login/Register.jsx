@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-// import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -12,7 +12,7 @@ const Register = () => {
     const [email, setEmail] = useState()
     const [mobile, setMobile] = useState()
     const [password, setPassword] = useState()
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
     async function handleSubmit1  (ev) {
         ev.preventDefault()
         try{
@@ -22,7 +22,7 @@ const Register = () => {
                 mobile, 
                 password 
             });
-                    // navigate('/user-login')
+                    navigate('/user-login')
                 alert('Registration successful. Now you can log in');
     } catch (e) {
       alert('Registration failed. Please try again later');
@@ -36,7 +36,7 @@ const Register = () => {
                     <h1 className="text-4xl text-center mb-4">Register</h1>
                     <form className="max-w-md mx-auto" onSubmit={handleSubmit1}>
                         <input type="text"
-                            placeholder="John Doe"
+                            placeholder="Your Name"
                             value={name}
                             onChange={ev => setName(ev.target.value)} />
                         <input type="email"

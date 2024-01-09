@@ -9,7 +9,7 @@ const Header = ({ scrollToSection , searchQuery , onSearchInputChange}) => {
   };
 
   return (
-    <div className="e-header-container">
+    <div className="e-header-container z-30">
       <div className="e-header">
         <Dropdown onChange={handleDropdownChange} />
         <SearchBar 
