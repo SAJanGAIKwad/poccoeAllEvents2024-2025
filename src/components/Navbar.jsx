@@ -61,7 +61,7 @@ const Navbar = () => {
                     <Link exact to="/contact">
                         <div className=' mx-8 my-1'>Contact</div>
                     </Link>
-                    <button className="bg-primary text-white p-1 rounded-full">
+                    <button className="bg-primary text-white p-2 rounded-full">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
                         </svg>
@@ -83,7 +83,7 @@ const Navbar = () => {
                     )}
                 </div>
             </header>
-            <ul className={`md:hidden items-center justify-self-center font-medium text-2xl text-white pb-12 absolute  z-40 md:static bg-nc top-19 w-full h-full pl-[70px] transition-all duration-1000 ease-in ${isOpen ? 'left-0 opacity-100' : 'left-[-990px] opacity-0'}`}>
+            <ul className={`md:hidden items-center justify-self-center font-medium text-2xl text-white pb-12 absolute  z-40 md:static bg-nc top-19 w-full h-full pl-[70px] transition-all duration-1000 ease-out ${isOpen ? 'left-0 opacity-100' : 'left-[-990px] opacity-0'}`}>
                 {
                     Links.map((Link) => (
                         <li key={Link.name} className='my-20'>
