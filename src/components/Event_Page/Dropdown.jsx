@@ -7,7 +7,8 @@ const customStyles = {
     ...provided,
     borderRadius: '8px',
     boxShadow: 'none',
-    width:'100%'
+    width:'100%',
+    border: '1px solid gray'
   }),
   option: (provided, state) => ({
     ...provided,
