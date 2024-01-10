@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
 import Select from 'react-select';
+import '../../pages_css/Event_Page_CSS/Dropdown.css';
 
 const customStyles = {
   control: (provided) => ({
     ...provided,
-    border: '2px solid #3498db',
     borderRadius: '8px',
     boxShadow: 'none',
-    '&:hover': {
-      border: '2px solid #2980b9',
-    },
+    width:'100%'
   }),
   option: (provided, state) => ({
     ...provided,
@@ -47,9 +45,7 @@ const Dropdown=({onChange})=> {
       <Select
         options={options}
         value={selectedOption}
-        onChange={handleChange}
-        // placeholder="Select an option..."
-      
+        onChange={handleChange}      
         styles={customStyles}
       />
     </div>
