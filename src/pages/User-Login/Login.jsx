@@ -1,4 +1,4 @@
-import React, {useContext, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import '../../App.css';
 import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
 import jwt_decode from "jwt-decode";
@@ -8,18 +8,18 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Link, Navigate } from 'react-router-dom';
 import { UserContext } from "../../UserContext";
 const Login = () => {
-    
+
     const [email, setEmail] = useState()
     const [password, setPassword] = useState()
     const { setUser } = useContext(UserContext);
     const [redirect, setRedirect] = useState(false);
 
-    async function handleSubmit  (e) {
+    async function handleSubmit(e) {
         e.preventDefault()
-       const {data} = await axios.post('http://localhost:3001/login', { email, password })
-       setUser(data);
-       setRedirect(true);
-       alert('Login successful');
+        const { data } = await axios.post('http://localhost:3001/login', { email, password })
+        setUser(data);
+        setRedirect(true);
+        alert('Login successful');
     }
     if (redirect) {
         return <Navigate to={'/'} />
@@ -40,6 +40,9 @@ const Login = () => {
                             value={password}
                             onChange={e => setPassword(e.target.value)} />
                         <button className="primary">Login</button>
+                        <div className='py-3 flex justify-center text-sky-600 font-bold'>
+                        <Link to={'/forgot-password'}>Forgot Password</Link>
+                        </div>
                         <GoogleOAuthProvider className='m-10 bg-danger' clientId="446061591121-opbuk29t8r85tdq2uia6am4m54ioqleh.apps.googleusercontent.com">
                             <div className='m-5 flex justify-center'>
                                 <GoogleLogin
