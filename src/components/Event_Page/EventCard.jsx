@@ -3,20 +3,22 @@ import '../../pages_css/Event_Page_CSS/EventCard.css';
 import Imag from '../../../src/Images/event-image.jpg';
 
 const EventCard = ({ event }) => (
-  <div className="event-card z-20">
+  <div className="event-card ">
 
     <div className="event-card-image">
         <img src={Imag} alt="Event" />
     </div>
 
     <div className="event-card-content">
-        <h3>{event.name}</h3>
-        <p>Date: {event.date}</p>
-        <p>Location: {event.location}</p>
-        <p>Start Time: {event.startTime}</p>
-        <p>End Time: {event.endTime}</p>
-    
-        {/* <p>Description: {event.description}</p> */}
+        
+        {/* <h3>Start Time: </h3><p>{event.startTime}</p>
+        <h3>End Time:</h3><p> {event.endTime}</p> */} 
+  
+       <h2 className="event-card__title">{event.name}</h2>
+       <p className="event-card__description">{event.description}</p>
+       <p className="event-card__location">Location: {event.location}</p>
+       <p className="event-card__datetime">Date & Time: {event.date} <span className='time'>{event.startTime}</span></p>
+     
     </div>
     <div className="register-block">
       <span class="register-text">

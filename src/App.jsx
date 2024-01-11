@@ -12,9 +12,11 @@ import Alogin from './pages/Admin-Login/Login';
 import Aregister from './pages/Admin-Login/Register';
 import { UserContextProvider } from './UserContext';
 import AccountPage from './pages/AccountPage';
+import ForgotPass from './pages/ForgotPass'
 // import Footer from './pages/Footer'
 import axios from 'axios';
 import "./App.css"
+import ResetPass from './pages/ResetPass';
 axios.defaults.withCredentials = true;
 function App() {
   return (
@@ -32,6 +34,8 @@ function App() {
           <Route exact path='/admin-login' element={<Alogin />}></Route>
           <Route exact path='/user-register' element={<Uregister />}></Route>
           <Route exact path='/Admin-register' element={<Aregister />}></Route>
+          <Route exact path='/forgot-password' element={<ForgotPass/>}></Route>
+          <Route exact path='/reset-password' element={<ResetPass/>}></Route>
         </Routes>
         <GTop />
       </BroweRouter>
