@@ -17,6 +17,12 @@ import ForgotPass from './pages/ForgotPass'
 import axios from 'axios';
 import "./App.css"
 import ResetPass from './pages/ResetPass';
+
+
+
+import EventForm from './components/eventForm/EventForm';
+
+
 axios.defaults.withCredentials = true;
 function App() {
   return (
@@ -36,6 +42,7 @@ function App() {
           <Route exact path='/Admin-register' element={<Aregister />}></Route>
           <Route exact path='/forgot-password' element={<ForgotPass/>}></Route>
           <Route exact path='/reset-password' element={<ResetPass/>}></Route>
+          <Route exact path='/event-form' element={<EventForm/>}></Route>
         </Routes>
         <GTop />
       </BroweRouter>
