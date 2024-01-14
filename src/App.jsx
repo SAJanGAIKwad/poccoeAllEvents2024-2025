@@ -41,7 +41,7 @@ function App() {
           <Route exact path='/user-register' element={<Uregister />}></Route>
           <Route exact path='/Admin-register' element={<Aregister />}></Route>
           <Route exact path='/forgot-password' element={<ForgotPass/>}></Route>
-          <Route exact path='/reset-password' element={<ResetPass/>}></Route>
+          <Route exact path='/reset-password/:id/:token' element={<ResetPass/>}></Route>
           <Route exact path='/event-form' element={<EventForm/>}></Route>
         </Routes>
         <GTop />
