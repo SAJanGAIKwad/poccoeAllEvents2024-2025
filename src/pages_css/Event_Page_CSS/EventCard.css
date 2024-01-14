@@ -1,27 +1,66 @@
-/* components/EventCard.css */
 
 .event-card{
-  min-width: 100px;
-  height: auto;
+  min-width: 10px;
   position: relative;
-  border-bottom-left-radius: 20px;
-  border-top-right-radius: 20px;
-  margin: 5px 55px;
-  background-color: #b9eb94c4;
-  box-shadow: 0px 0px 15px 0 rgba(0, 0, 0, 0.18);
+  margin: 8vh 8vh;
+  background-color: #faf79ec4;
+  border-radius: 5px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s ;
+  justify-content: space-between;
+  align-items: flex-start;
+  transition: transform 0.4s ;
 }
+
+.event-card-image img{
+  width: 100vh;
+  /* height: auto; */
+ 
+}
+
+.event-card-content{
+  /* width: 100%; */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+}
+
+ .event-card__title {
+  font-size: 20px;
+  margin-bottom: 10px;
+ }
+ 
+ .event-card__description {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 10px;
+ }
+ 
+ .event-card__location,
+ .event-card__datetime {
+  font-size: 14px;
+  color: #666;
+ }
+
+ .event-card__datetime .time{
+ margin-left: 10px;
+ }
+
+ 
+
+
+
+
 .register-block{
-  background:transparent linear-gradient(106deg, #146371 0%, #8cd4d7 100%) 0% 0% no-repeat padding-box;
+  background:transparent linear-gradient(106deg, #cfe8d9 0%, #35e274 100%) 0% 0% no-repeat padding-box;
   padding : 12px ;
   text-align: center;
   width: 100%;
   position: relative;
   bottom: 0;
-  border-bottom-left-radius: 20px ;
 }
 
 .register-text a{
@@ -34,23 +73,13 @@
 .register-text a:hover{
   color: rgb(15, 232, 243);
 }
-.event-card-image img{
-  width: 100%;
-  height: auto;
-  border-top-right-radius: 20px;
-}
-
-.event-card-content{
-  width: 100%;
-  
-}
-
 .event-card:hover{
-  transform: scale(1.05);
+  transform: scale(1.01);
+  box-shadow: 0px 0px 15px 0 rgba(0, 0, 0, 0.18);
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .event-card {
-    margin: 15px 25px;
+    margin: 5vh 5vh;
   }
-}
+} */
