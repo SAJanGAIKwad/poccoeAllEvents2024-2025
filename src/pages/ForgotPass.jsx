@@ -13,11 +13,10 @@ const ForgotPass = () => {
         axios.post('http://localhost:3001/forgot-password', { email })
             .then(res => {
                 if (res.data.Status === "Success") {
-                    if (res.data.role === "admin") {
-                        navigate('/reset-password')
-                    } else {
-                        navigate('/user-login')
-                    }
+                    navigate('/event')
+                }
+                else {
+                    navigate('/user-login')
                 }
             }).catch(err)
         console.log(err);

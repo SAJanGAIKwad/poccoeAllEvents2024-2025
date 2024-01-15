@@ -35,13 +35,13 @@ function App() {
           <Route exact path='/Event' element={<Event />}></Route>
           <Route exact path='/contact' element={<Contact />}></Route>
           <Route exact path='/login' element={<LoginG />}></Route>
-          <Route path="/account" element={<AccountPage/>} />
+          <Route path="/profile" element={<AccountPage/>} />
           <Route exact path='/user-login' element={<Ulogin />}></Route>
           <Route exact path='/admin-login' element={<Alogin />}></Route>
           <Route exact path='/user-register' element={<Uregister />}></Route>
           <Route exact path='/Admin-register' element={<Aregister />}></Route>
           <Route exact path='/forgot-password' element={<ForgotPass/>}></Route>
-          <Route exact path='/reset-password' element={<ResetPass/>}></Route>
+          <Route exact path='/reset-password/:id/:token' element={<ResetPass/>}></Route>
           <Route exact path='/event-form' element={<EventForm/>}></Route>
         </Routes>
         <GTop />
