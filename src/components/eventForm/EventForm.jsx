@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import axios from 'axios';
+
 import './event-form.css'
 
-
+import { useEffect } from 'react';
 
 const EventForm = () => {
     const [formData, setFormData] = useState({
@@ -29,12 +31,49 @@ const EventForm = () => {
 
     };
    
-    const handleSubmit = (event) => {
+    const handleSubmit = async(event) => {
       event.preventDefault();   //prevent to submit the form traditional way
 
       // Handle form submission logic here
       console.log(formData);
-    };
+      console.log(JSON.stringify(formData))
+      
+        const data={
+            "title": "SamplE",
+            "description": "This is a sample event for testing purposes.",
+            "category": "Technlogy",
+            "date": {
+                "eventStart": "2024-01-15T09:00:00Z",
+                "eventEnd": "2024-01-15T17:00:00Z"
+            },
+            "location": "Sample Location",
+            "image": "https://example.com/sample-image.jpg"
+        }
+       
+        try {
+        
+          const response = await axios.post('http://localhost:3001/api/events', data);
+    
+      
+          console.log(response.data); 
+    
+        } catch (error) {
+          console.error("Error submitting event:", error);
+          
+        }
+        
+       
+     };
+
+    //  useEffect(() => {
+    //   axios.get('https://localhost:3001/api/events')
+    //     .then((response) => {
+    //       console.log(response);
+    //     })
+    //     .catch((error) => {
+    //       console.error(error);
+    //     });
+    // }, []);
    
     return (
         <div className="form-container">
