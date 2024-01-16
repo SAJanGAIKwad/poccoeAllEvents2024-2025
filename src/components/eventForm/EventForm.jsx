@@ -36,19 +36,19 @@ const EventForm = () => {
 
       // Handle form submission logic here
       console.log(formData);
-      console.log(JSON.stringify(formData))
+      // console.log(JSON.stringify(formData))
       
-        const data={
-            "title": "lE",
-            "description": "This is a sample event for testing purposes.",
-            "category": "Technlogy",
-            "date": {
-                "eventStart": "2024-01-15T09:00:00Z",
-                "eventEnd": "2024-01-15T17:00:00Z"
-            },
-            "location": "Sample Location"
-            // "image": "https://example.com/sample-image.jpg"
-        }
+        // const data={
+        //     "title": "lE",
+        //     "description": "This is a sample event for testing purposes.",
+        //     "category": "Technlogy",
+        //     "date": {
+        //         "eventStart": "2024-01-15T09:00:00Z",
+        //         "eventEnd": "2024-01-15T17:00:00Z"
+        //     },
+        //     "location": "Sample Location",
+        //     "image": "https://example.com/sample-image.jpg"
+        // }
        
         try {
         

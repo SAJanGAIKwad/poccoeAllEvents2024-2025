@@ -113,7 +113,7 @@ const Event = () => {
   useEffect(() => {
     axios.get('http://localhost:3001/api/events')
       .then((data) => {
-        console.log(data);
+        console.log('this is data',data);
         
       })
       .catch((error) => {
