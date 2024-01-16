@@ -1,10 +1,12 @@
-import React, {useRef,useState} from 'react';
+import React, {useRef,useState,useEffect} from 'react';
 import '../App.css';
 import Header from '../components/Event_Page/Header';
 import AllEvents from '../components/Event_Page/AllEvents';
 import PastEvents from '../components/Event_Page/PastEvents';
 import UpcomingEvents from '../components/Event_Page/UpcomingEvents';
 import LiveEvents from '../components/Event_Page/LiveEvents';
+
+import axios from 'axios'
 
 const eventsData = [
   
@@ -106,6 +108,20 @@ const Event = () => {
   const handleSearchInputChange = (value) => {
     setSearchQuery(value);
   };
+
+
+  useEffect(() => {
+    axios.get('http://localhost:3001/api/events')
+      .then((data) => {
+        console.log(data);
+        
+      })
+      .catch((error) => {
+        console.log('errorrr::',error);
+      });
+  }, );
+
+
 
   return (
     <div className="app">

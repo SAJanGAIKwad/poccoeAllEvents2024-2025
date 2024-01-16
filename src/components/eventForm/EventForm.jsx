@@ -3,17 +3,17 @@ import axios from 'axios';
 
 import './event-form.css'
 
-import { useEffect } from 'react';
 
 const EventForm = () => {
     const [formData, setFormData] = useState({
-      eventTitle: '',
-      eventDate:{
-        startDate: '',
-        endDate: ''
+      title: '',
+      description: '',
+      date:{
+        eventStart: '',
+        eventEnd: ''
       },
-      eventLocation: '',
-      eventDescription: ''
+      location: ''
+    
     });
 
     const [isSelected, setIsSelected] = useState(false);
@@ -21,8 +21,8 @@ const EventForm = () => {
     const handleChange = (event) => {
       const { id, value } = event.target;
       setFormData((prevFormData) =>{
-        if(id==='startDate') return {...prevFormData, eventDate:{...prevFormData.eventDate, startDate: value}};
-        else if(id==='endDate') return {...prevFormData, eventDate:{...prevFormData.eventDate, endDate: value}};
+        if(id==='eventStart') return {...prevFormData, date:{...prevFormData.date, eventStart: value}};
+        else if(id==='eventEnd') return {...prevFormData, date:{...prevFormData.date, eventEnd: value}};
         else return {...prevFormData, [id]: value};
       });
 
@@ -39,20 +39,20 @@ const EventForm = () => {
       console.log(JSON.stringify(formData))
       
         const data={
-            "title": "SamplE",
+            "title": "lE",
             "description": "This is a sample event for testing purposes.",
             "category": "Technlogy",
             "date": {
                 "eventStart": "2024-01-15T09:00:00Z",
                 "eventEnd": "2024-01-15T17:00:00Z"
             },
-            "location": "Sample Location",
-            "image": "https://example.com/sample-image.jpg"
+            "location": "Sample Location"
+            // "image": "https://example.com/sample-image.jpg"
         }
        
         try {
         
-          const response = await axios.post('http://localhost:3001/api/events', data);
+          const response = await axios.post('http://localhost:3001/api/events',formData);
     
       
           console.log(response.data); 
@@ -65,15 +65,6 @@ const EventForm = () => {
        
      };
 
-    //  useEffect(() => {
-    //   axios.get('https://localhost:3001/api/events')
-    //     .then((response) => {
-    //       console.log(response);
-    //     })
-    //     .catch((error) => {
-    //       console.error(error);
-    //     });
-    // }, []);
    
     return (
         <div className="form-container">
@@ -84,31 +75,31 @@ const EventForm = () => {
                 </div>
 
                 <div className="event-title-des-location">
-                    <input type="text" id="eventTitle"  placeholder='Event Title' value={formData.eventTitle} onChange={handleChange} />
+                    <input type="text" id="title"  placeholder='Event Title' value={formData.title} onChange={handleChange} />
 
-                    <textarea id="eventDescription"  placeholder='Event Description' value={formData.eventDescription} onChange={handleChange} />
+                    <textarea id="description"  placeholder='Event Description' value={formData.description} onChange={handleChange} />
 
-                    <input type="text" id="eventLocation"  placeholder='Event Location' value={formData.eventLocation} onChange={handleChange} />
+                    <input type="text" id="location"  placeholder='Event Location' value={formData.location} onChange={handleChange} />
                 </div>
                 <div className="date">
                     <div className="start-date">
-                        <label htmlFor="startDate">Start Date and Time:</label>
+                        <label htmlFor="eventStart">Start Date and Time:</label>
                         <input
                          type="datetime-local"
-                         id="startDate"
+                         id="eventStart"
                          className={isSelected ? 'black': 'gray'}
-                         value={formData.eventDate.startDate}
+                         value={formData.date.eventStart}
                          onChange={handleChange}
                         />
                     </div>
 
                     <div className="end-date">
-                        <label htmlFor="endDate">End Date and Time:</label>
+                        <label htmlFor="eventEnd">End Date and Time:</label>
                         <input
                          type="datetime-local"
-                         id="endDate"
+                         id="eventEnd"
                          className={isSelected ? 'black': 'gray'}
-                         value={formData.eventDate.endDate}
+                         value={formData.date.eventEnd}
                          onChange={handleChange}
                         />
                     </div>
