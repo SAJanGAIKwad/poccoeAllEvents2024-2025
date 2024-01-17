@@ -109,7 +109,7 @@ const Event = () => {
     setSearchQuery(value);
   };
 
-
+//fetch the data from api to display on event cards.
   useEffect(() => {
     axios.get('http://localhost:3001/api/events')
       .then((data) => {
