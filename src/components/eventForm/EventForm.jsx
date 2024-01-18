@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
 
 import './event-form.css'
 
@@ -11,8 +14,8 @@ const EventForm = () => {
       description: '',
       location: '',
       date:{
-        eventStart: '',
-        eventEnd: ''
+        eventStart: new Date(),
+        eventEnd: new Date()
       },
       category:'technical'
     });
@@ -25,13 +28,23 @@ const EventForm = () => {
       // console.log(event.target.files)
     }
 
-    const handleChange = (event) => {
+    const handleChange = (id,value) => {
 
-      const { id, value } = event.target;
-      setEventDetails((prevEventDetails) =>{
-        if(id==='eventStart') return {...prevEventDetails, date:{...prevEventDetails.date, eventStart: value}};
-        else if(id==='eventEnd') return {...prevEventDetails, date:{...prevEventDetails.date, eventEnd: value}};
-        else return {...prevEventDetails, [id]: value};
+      setEventDetails((prevEventDetails) => {
+        if (id === 'eventStart' || id === 'eventEnd') {
+          return {
+            ...prevEventDetails,
+            date: {
+              ...prevEventDetails.date,
+              [id]: value,
+            },
+          };
+        } else {
+          return {
+            ...prevEventDetails,
+            [id]: value,
+          };
+        }
       });
 
       if(value!=='') setIsSelected(true);
@@ -90,21 +103,21 @@ const EventForm = () => {
                 </div>
 
                 <div className="event-title-des-location">
-                    <input type="text" id="title"  placeholder='Event Title' value={eventDetails.title} onChange={handleChange} />
+                    <input type="text" id="title"  placeholder='Event Title' value={eventDetails.title} onChange={(e)=>{handleChange('title', e.target.value)}} />
 
-                    <textarea id="description"  placeholder='Event Description' value={eventDetails.description} onChange={handleChange} />
+                    <textarea id="description"  placeholder='Event Description' value={eventDetails.description} onChange={(e)=>{handleChange('description', e.target.value)}} />
 
-                    <input type="text" id="location"  placeholder='Event Location' value={eventDetails.location} onChange={handleChange} />
+                    <input type="text" id="location"  placeholder='Event Location' value={eventDetails.location} onChange={(e)=>{handleChange('location', e.target.value)}} />
                 </div>
                   <div className="img-catag-date">
                     <div className="image-category">
                       <div className="file-upload">
                         <label htmlFor="file">Upload Image:</label>
-                        <input type="file" id='file' value='' onChange={handleFileChange} />
+                        <input type="file" id='file' onChange={handleFileChange} />
                       </div>
                       <div className="category">
                         <label htmlFor="category">Category:</label>
-                        <select name="category" id="category" value={eventDetails.category} onChange={handleChange}>
+                        <select name="category" id="category" value={eventDetails.category} onChange={(e)=>{handleChange('category', e.target.value)}}>
                           <option value="technical">Technical</option>
                           <option value="cultural">Cultural</option>
                           <option value="other">Other</option>
@@ -114,23 +127,25 @@ const EventForm = () => {
                     <div className="date">
                         <div className="start-date">
                             <label htmlFor="eventStart">Start Date and Time:</label>
-                            <input
-                             type="datetime-local"
-                             id="eventStart"
-                             className={isSelected ? 'black': 'gray'}
-                             value={eventDetails.date.eventStart}
-                             onChange={handleChange}
+                            <DatePicker
+                              id="eventStart"
+                              selected={eventDetails.date.eventStart}
+                              onChange={(date) => handleChange('eventStart', date)}
+                              showTimeSelect
+                              dateFormat="Pp"
+                              className={isSelected ? 'black' : 'gray'}
                             />
                         </div>
 
                         <div className="end-date">
                             <label htmlFor="eventEnd">End Date and Time:</label>
-                            <input
-                             type="datetime-local"
-                             id="eventEnd"
-                             className={isSelected ? 'black': 'gray'}
-                             value={eventDetails.date.eventEnd}
-                             onChange={handleChange}
+                            <DatePicker
+                              id="eventEnd"
+                              selected={eventDetails.date.eventEnd}
+                              onChange={(date) => handleChange('eventEnd', date)}
+                              showTimeSelect
+                              dateFormat="Pp"
+                              className={isSelected ? 'black' : 'gray'}
                             />
                         </div>
                     </div>
