@@ -1,8 +1,16 @@
 import React from 'react'
+import CarouselPage from '../CarouselPage'
+
 const Home = () => {
   return (
-    <h1 className='absolute'>Home</h1>
+    <div>
+      <CarouselPage/>
+    </div>
   )
 }
 
 export default Home
+
+
+
+

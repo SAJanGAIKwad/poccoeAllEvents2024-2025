@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState } from "react";
+import axios from "axios";
 
-import './event-form.css'
-
+import "./event-form.css";
 
 const EventForm = () => {
-
     const [eventDetails, setEventDetails] = useState({
       title: '',
       description: '',
@@ -34,10 +32,22 @@ const EventForm = () => {
         else return {...prevEventDetails, [id]: value};
       });
 
-      if(value!=='') setIsSelected(true);
-      else setIsSelected(false);
+    // Handle form submission logic here
+    console.log(formData);
+    console.log(JSON.stringify(formData));
 
+    const data = {
+      title: "lE",
+      description: "This is a sample event for testing purposes.",
+      category: "Technlogy",
+      date: {
+        eventStart: "2024-01-15T09:00:00Z",
+        eventEnd: "2024-01-15T17:00:00Z",
+      },
+      location: "Sample Location",
+      // "image": "https://example.com/sample-image.jpg"
     };
+
    
     const handleSubmit = async(event) => {
       event.preventDefault();   //prevent to submit the form traditional way
@@ -142,10 +152,9 @@ const EventForm = () => {
                 </div>
             </form>
         </div>
-        
+      </form>
+    </div>
+  );
+};
 
-    );
-   };
-   
-   export default EventForm;
-   
+export default EventForm;
