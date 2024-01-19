@@ -17,10 +17,10 @@ import ForgotPass from './pages/ForgotPass'
 import axios from 'axios';
 import "./App.css"
 import ResetPass from './pages/ResetPass';
-
-
-
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import EventForm from './components/eventForm/EventForm';
+
 
 
 axios.defaults.withCredentials = true;
@@ -43,6 +43,7 @@ function App() {
           <Route exact path='/forgot-password' element={<ForgotPass/>}></Route>
           <Route exact path='/reset-password/:id/:token' element={<ResetPass/>}></Route>
           <Route exact path='/event-form' element={<EventForm/>}></Route>
+          
         </Routes>
         <GTop />
       </BroweRouter>
