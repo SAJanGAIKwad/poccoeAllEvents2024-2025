@@ -5,7 +5,7 @@ import Contact from './pages/Contact';
 import Event from './pages/Event';
 import { BrowserRouter as BroweRouter, Routes, Route } from "react-router-dom"
 import GTop from './components/Gtop';
-import LoginG from './pages/Login/LoginG';
+// import LoginG from './pages/Login/LoginG';
 import Ulogin from './pages/User-Login/Login';
 import Uregister from '../src/pages/User-Login/Register';
 import Alogin from './pages/Admin-Login/Login';
@@ -34,7 +34,7 @@ function App() {
           <Route exact path='/about' element={<About />}></Route>
           <Route exact path='/Event' element={<Event />}></Route>
           <Route exact path='/contact' element={<Contact />}></Route>
-          <Route exact path='/login' element={<LoginG />}></Route>
+          {/* <Route exact path='/login' element={<LoginG />}></Route> */}
           <Route path="/profile" element={<AccountPage/>} />
           <Route exact path='/user-login' element={<Ulogin />}></Route>
           <Route exact path='/admin-login' element={<Alogin />}></Route>

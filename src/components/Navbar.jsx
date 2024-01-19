@@ -2,6 +2,9 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useContext } from "react";
 import { UserContext } from "../../src/UserContext";
+import LoginG from '../pages/Login/LoginG'
+import { RiArrowDropDownLine } from "react-icons/ri";
+
 
 const HamburgerMenu = () => {
     return (
@@ -25,8 +28,12 @@ const CrossMenu = () => {
 const Navbar = () => {
     const { user } = useContext(UserContext);
     const [isOpen, setIsOpen] = useState(false);
+    const [isOpen1, setIsOpen1] = useState(false);
     const toggleNavbar = () => {
         setIsOpen(!isOpen);
+    }
+    const toggleNavbar1 = () => {
+        setIsOpen1(!isOpen1);
     }
 
     //Mobile View Pages Links
@@ -67,20 +74,29 @@ const Navbar = () => {
                         </svg>
                     </button>
                 </div>
-                <div className="flex items-center gap-2 border border-gray-300 rounded-full py-2 px-4">
+                <div className="flex items-center justify-center gap-2 border border-gray-300 rounded-full py-2 px-4">
                     <div className="md:hidden cursor-pointer">
                         <div onClick={toggleNavbar}>{isOpen ? <CrossMenu /> : <HamburgerMenu />} </div>
                     </div>
-                    <Link to={user ? '/profile' : '/user-login'} className="bg-gray-500 text-white rounded-full border border-gray-500 overflow-hidden">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 relative top-1">
-                            <path fillRule="evenodd" d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z" clipRule="evenodd" />
-                        </svg>
-                    </Link>
-                    {!!user && (
-                        <div>
-                            {user.name}
+                    <div className='flex gap-2'>
+                        <Link to={user ? '/profile' : '/user-login'} className="cursor-pointer flex bg-gray-500 text-white rounded-full border border-gray-500 overflow-hidden">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 relative top-1">
+                                <path fillRule="evenodd" d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z" clipRule="evenodd" />
+                            </svg>
+                        </Link>
+                        <div className='items-center justify-center'>
+                            {!!user && (
+                                <div>
+                                    {user.name}
+                                </div>
+                            )}
                         </div>
-                    )}
+                        <div onClick={toggleNavbar1}>{isOpen1 ? <CrossMenu className='ml-4' /> : <RiArrowDropDownLine className=' items-center text-2xl' />}
+                            <div className={`transition-all duration-1000 ease-in${isOpen1 ? 'right-0 opacity-100' : 'right-[-990px] opacity-0'}`}>
+                                <LoginG />
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </header>
             <ul className={`md:hidden items-center justify-self-center font-medium text-2xl text-white pb-12 absolute  z-40 md:static bg-nc top-19 w-full h-full pl-[70px] transition-all duration-1000 ease-out ${isOpen ? 'left-0 opacity-100' : 'left-[-990px] opacity-0'}`}>
