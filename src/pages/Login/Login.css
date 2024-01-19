@@ -3,7 +3,7 @@
     --secondary-bg: #fff;
     --primary-text-color: #555;
     --secondary-text-color: #cecece;
-    --border-radius: 10px;
+    --border-radius: 15px;
     --speed: 800ms;
   }
   
@@ -18,15 +18,15 @@
   .dropdown-menu{
     position: absolute;
     top: 70px;
-    right: 10px;
-    background-color: #14b8a6;
+    right: 50px;
+    background-color: #1f5156;
     border: 2px solid #ffdd40;
     border-radius: var(--border-radius) 0px;
     padding: 10px;
     width: 160px;
-  }
-  
-  .dropdown-menu::before{
+}
+
+.dropdown-menu::before{
     content: '';
     position: absolute;
     top: -9px;
@@ -35,8 +35,7 @@
     width: 15px;
     border-top: 2px solid #ffdd40;
     border-left: 2px solid #ffdd40;
-    background-color: #14b8a6;
-    border-radius: var(--border-radius) 0px;
+    background-color: #1f5156;
     transform: rotate(45deg);
   }
   
