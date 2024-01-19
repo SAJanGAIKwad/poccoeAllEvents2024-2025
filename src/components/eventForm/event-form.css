@@ -1,10 +1,11 @@
 .form-container{
     background-color: rgb(230, 221, 211);
-    padding: 10px;
+    padding: 20px;
     width: 100%;
+    height: 100dvh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
 
@@ -31,35 +32,52 @@
     font-size: calc(0.6rem + 0.4vw);
 }
 
-.date{
+.img-catag-date{
     display: flex;
     flex-direction: row;
     width: 100%;
     justify-content: space-between;
-    margin: 12px 0;
+    margin: 9px;
 }
-
-.start-date, .end-date{
-    
+.date,.image-category{
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    margin: 10px 4px;
+    justify-content: space-between;
 }
 
-.start-date label, .end-date label{
-    font-size: calc(0.5rem + 0.5vw);
+.start-date, .file-upload{
+    width: 100%;
+    margin-bottom: 1vw ;
+}
+.end-date, .category{
+    width: 100%;
+    margin-top: 0.3vw ;
+}
+
+.start-date label, .end-date label,.file-upload label,.category label{
+    font-size: calc(0.5rem + 0.6vw);
     margin-right: 10px;
     font-style: italic;
     font-weight: lighter;
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
-.start-date input, .end-date input{
+.category select{
     padding: 3px;
     border-radius: 8px;
-    border: 1px solid rgb(123, 122, 122);
-    font-size: calc(0.3rem + 0.5vw);
-    /* min-width: 150px; */
+    width: 200px;
+    border: 1px solid rgb(95, 94, 94);
+    font-size: calc(0.4rem + 0.8vw);
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.start-date input, .end-date input, .file-upload input{
+    padding: 3px;
+    border-radius: 8px;
     width: 170px;
+    border: 1px solid rgb(95, 94, 94);
+    font-size: calc(0.3rem + 0.5vw);
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .blank{
@@ -101,19 +119,47 @@
 
 
 
-@media screen and (max-width: 600px) {
-   .date{
-    flex-wrap: wrap;
-    margin: 0px;
-   }
+@media screen and (max-width: 690px) {
 
    .form-container{
     height: 100dvh;
    }
 
-   .start-date input, .end-date input{
-    width: 170px;
+   .start-date input, .end-date input, .file-upload input, .category select{
+    width: 150px;
+    margin-left: 10px;
    }
 
 }
+
+@media screen and (max-width: 428px) {
+
+    .form-container{
+        height: 100dvh;
+    }
+    .img-catag-date{
+        flex-wrap: wrap;
+    }
+    .start-date input, .end-date input{
+        width: 130px;
+        margin-left: 10px;
+    }
+    .start-date input, .end-date input, .file-upload input, .category select{
+        height: 20px;
+    }
+    .start-date label, .end-date label,.file-upload label,.category label{
+        margin:0px;
+        font-size: 13px;
+    }
+    .file-upload,.category,.start-date,.end-date{
+        display:flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .image-category{
+        margin-bottom: 10px;
+    }
+      
+}    
+
    
