@@ -1,8 +1,8 @@
 .form-container{
     background-color: rgb(230, 221, 211);
-    padding: 20px;
+    padding: 20px ;
     width: 100%;
-    height: 100dvh;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -11,7 +11,7 @@
 
 #event-form{
     padding: 20px;
-    margin: 20px;
+    margin: 20px ;
     border-radius: 10px;
     background-color: white;
     box-shadow: 0px 0px 10px 0px rgba(76, 74, 74, 0.75);
@@ -37,26 +37,23 @@
     flex-direction: row;
     width: 100%;
     justify-content: space-between;
-    margin: 9px;
+    padding: 10px ;
 }
-.date,.image-category{
+.image-category{
     display: flex;
     flex-direction: column;
-    width: 100%;
-    justify-content: space-between;
+    justify-content: space-around;
+    align-items: flex-start;
 }
-
-.start-date, .file-upload{
-    width: 100%;
-    margin-bottom: 1vw ;
-}
-.end-date, .category{
-    width: 100%;
-    margin-top: 0.3vw ;
+.date{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-end;
 }
 
 .start-date label, .end-date label,.file-upload label,.category label{
-    font-size: calc(0.5rem + 0.6vw);
+    font-size: calc(0.5rem + 0.7vw);
     margin-right: 10px;
     font-style: italic;
     font-weight: lighter;
@@ -64,19 +61,19 @@
 }
 
 .category select{
-    padding: 3px;
+    padding: 3px 10px;
     border-radius: 8px;
-    width: 200px;
+    width: 140px;
     border: 1px solid rgb(95, 94, 94);
     font-size: calc(0.4rem + 0.8vw);
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
-.start-date input, .end-date input, .file-upload input{
-    padding: 3px;
+#eventStart,#eventEnd , .file-upload input, .category select{
+    padding: 3px 8px;
     border-radius: 8px;
     width: 170px;
-    border: 1px solid rgb(95, 94, 94);
-    font-size: calc(0.3rem + 0.5vw);
+    border: 1px solid rgb(32, 31, 31);
+    font-size: calc(0.5rem + 0.5vw);
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
@@ -84,7 +81,7 @@
     color:black
 }
 .gray{
-    color:gray
+    color:rgb(191, 187, 187)
 }
 
 .submit-button{
@@ -125,9 +122,19 @@
     height: 100dvh;
    }
 
-   .start-date input, .end-date input, .file-upload input, .category select{
+   #eventStart, #eventEnd, .file-upload input, .category select{
     width: 150px;
     margin-left: 10px;
+   }
+
+   .image-category,.date{
+    flex-wrap: wrap;
+    
+   }
+   .img-catag-date{
+    flex-direction: row;
+    gap: 25px;
+    align-items: space-between;
    }
 
 }
@@ -139,25 +146,29 @@
     }
     .img-catag-date{
         flex-wrap: wrap;
+        gap: 15px;
     }
-    .start-date input, .end-date input{
+    #eventStart, #eventEnd{
         width: 130px;
         margin-left: 10px;
     }
-    .start-date input, .end-date input, .file-upload input, .category select{
+    #eventStart, #eventEnd, .category select, .file-upload input{
         height: 20px;
+        width: 115px;
     }
     .start-date label, .end-date label,.file-upload label,.category label{
         margin:0px;
-        font-size: 13px;
+        font-size: 12px;
     }
     .file-upload,.category,.start-date,.end-date{
         display:flex;
         flex-direction: row;
         justify-content: space-between;
+        align-items: center;
+       
     }
-    .image-category{
-        margin-bottom: 10px;
+    .image-category, .date{
+        gap: 12px;
     }
       
 }    
