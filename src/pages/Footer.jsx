@@ -1,17 +1,14 @@
 import React from 'react'
-import '../index.css'
 const Footer = () => {
   return (
     <>
-        <div className='text-3xl font-bold underline'>Footer
-            <div className='container'>
-                <div className='row'>
-                    <div className='col-md-6 col-lg-5 col-12'>
-
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div>
+        <footer className='bg-dark text-light py-3 relative b-{0vh} w-{100%}'>
+          <p className='text-center'>
+          &copy; Copyright All Rights Reserved PccoeAllEvents.com
+          </p>
+        </footer>
+    </div>
     </>
   )
 }

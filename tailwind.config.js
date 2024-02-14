@@ -10,6 +10,7 @@ export default {
         primary: '#F5385D',
         transparent: 'transparent',
         current: 'currentColor',
+        btncol: '#ff4500',
         nc: '#14b8a6',
         'white': '#ffffff',
         'purple': '#3f3cbb',
