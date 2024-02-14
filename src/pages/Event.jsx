@@ -4,7 +4,7 @@ import Header from '../components/Event_Page/Header';
 import AllEvents from '../components/Event_Page/AllEvents';
 import PastEvents from '../components/Event_Page/PastEvents';
 import UpcomingEvents from '../components/Event_Page/UpcomingEvents';
-import LiveEvents from '../components/Event_Page/LiveEvents';
+// import LiveEvents from '../components/Event_Page/LiveEvents';
 
 import axios from 'axios'
 
@@ -13,7 +13,7 @@ const eventsData = [
   {
     id: 1,
     name: 'Event 1',
-    date: '2023-08-10',
+    date: '2024-08-10',
     location: 'Venue XYZ',
     startTime: '08:00 AM',
     endTime: '12:00 PM',
@@ -58,7 +58,7 @@ const Event = () => {
   const allEventsRef = useRef(null);
   const pastEventsRef = useRef(null);
   const upcomingEventsRef = useRef(null);
-  const liveEventsRef = useRef(null);
+  // const liveEventsRef = useRef(null);
   
 
   // Function to get the appropriate ref based on the selected option
@@ -83,9 +83,9 @@ const Event = () => {
       case "upcoming":
         targetRef = upcomingEventsRef;
         break;
-      case "live":
-        targetRef = liveEventsRef;
-        break;
+      // case "live":
+      //   targetRef = liveEventsRef;
+      //   break;
       default:
         break;
     }
@@ -145,9 +145,9 @@ const Event = () => {
         <div ref={upcomingEventsRef}>
           <UpcomingEvents events={eventsData} />
         </div>
-        <div ref={liveEventsRef}>
+        {/* <div ref={liveEventsRef}>
           <LiveEvents events={eventsData} />
-        </div>
+        </div> */}
       </div>
     </div>
   );

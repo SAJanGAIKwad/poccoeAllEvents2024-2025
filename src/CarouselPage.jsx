@@ -1,6 +1,5 @@
 import React from "react";
 import Carousel from "react-bootstrap/Carousel";
-import Event from "./pages/Event";
 function CarouselPage() {
   return (
     <div>
@@ -65,7 +64,6 @@ function CarouselPage() {
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
-      <Event />
     </div>
   );
 }
