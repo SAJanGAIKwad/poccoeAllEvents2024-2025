@@ -21,8 +21,6 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import EventForm from './components/eventForm/EventForm';
 
-
-
 axios.defaults.withCredentials = true;
 function App() {
   return (
