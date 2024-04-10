@@ -6,8 +6,8 @@
 body{
   /* background-image: url(./Images/Background.jpg); */
   /* background-image: linear-gradient(40deg,#74ceb4,rgb(175, 108, 196)); */
-  background-Size: cover;
-  background-Repeat: no-repeat;
+  background-size: cover;
+  background-repeat: no-repeat;
   min-height: 100vh;
 }
 .App {
