@@ -1,6 +1,6 @@
 import React from "react";
 import "../../pages_css/Event_Page_CSS/EventCard.css";
-import Imag from "../../../src/Images/event-image.jpg";
+import Imag from "../../../src/Images/bluebit.png";
 
 const EventCard = ({ event }) => (
   <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
