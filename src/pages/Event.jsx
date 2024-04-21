@@ -1,56 +1,12 @@
 import React, {useRef,useState,useEffect} from 'react';
-import '../App.css';
 import Header from '../components/Event_Page/Header';
 import AllEvents from '../components/Event_Page/AllEvents';
 import PastEvents from '../components/Event_Page/PastEvents';
 import UpcomingEvents from '../components/Event_Page/UpcomingEvents';
-// import LiveEvents from '../components/Event_Page/LiveEvents';
+import LiveEvents from '../components/Event_Page/LiveEvents';
 
 import axios from 'axios'
 
-const eventsData = [
-  
-  {
-    id: 1,
-    name: 'Event 1',
-    date: '2024-08-10',
-    location: 'Venue XYZ',
-    startTime: '08:00 AM',
-    endTime: '12:00 PM',
-    description: 'Description for Event 1',
-  },
-  
-  {
-    id: 2,
-    name: 'Event 1',
-    date: '2023-09-15',
-    location: 'Venue XYZ',
-    startTime: '08:00 AM',
-    endTime: '12:00 PM',
-    description: 'Description for Event 2',
-  }
-  ,
-  {
-    id: 3,
-    name: 'Event 3',
-    date: '2023-09-03',
-    location: 'Venue XYZ',
-    startTime: '4:00 AM',
-    endTime: '05:00 PM',
-    description: 'Description for Event 3',
-  }
-  ,
-  {
-    id: 4,
-    name: 'Event 4',
-    date: '2023-09-20',
-    location: 'Venue XYZ',
-    startTime: '08:00 AM',
-    endTime: '12:00 PM',
-    description: 'Description for Event 4',
-  }
-  
-];
 
 const Event = () => {
  
@@ -58,10 +14,10 @@ const Event = () => {
   const allEventsRef = useRef(null);
   const pastEventsRef = useRef(null);
   const upcomingEventsRef = useRef(null);
-  // const liveEventsRef = useRef(null);
-  
+  const liveEventsRef = useRef(null);
+  const [eventsData, setEventsData] = useState([]);
+  const [searchQuery, setSearchQuery] = useState(''); // Step 1: Add Search State
 
-  // Function to get the appropriate ref based on the selected option
   // Function to get the appropriate ref based on the selected option
   const scrollToSection = (section) => {
     let targetRef = null;
@@ -83,9 +39,9 @@ const Event = () => {
       case "upcoming":
         targetRef = upcomingEventsRef;
         break;
-      // case "live":
-      //   targetRef = liveEventsRef;
-      //   break;
+      case "live":
+        targetRef = liveEventsRef;
+        break;
       default:
         break;
     }
@@ -102,7 +58,7 @@ const Event = () => {
     }
   };
 
-  const [searchQuery, setSearchQuery] = useState(''); // Step 1: Add Search State
+  
 
   // Function to handle search input changes (Step 2)
   const handleSearchInputChange = (value) => {
@@ -110,16 +66,16 @@ const Event = () => {
   };
 
 //fetch the data from api to display on event cards.
+axios.defaults.baseURL = 'http://localhost:3001/api/events';
   useEffect(() => {
-    axios.get('http://localhost:3001/api/events')
-      .then((data) => {
-        console.log('this is data',data);
-        
+    axios.get('/all-events')
+      .then((response) => {
+        setEventsData(response.data); // Assuming the data is in response.data
       })
       .catch((error) => {
-        console.log('errorrr::',error);
+        console.error('Error fetching events:', error);
       });
-  }, );
+  }, []); 
 
 
 
@@ -135,19 +91,19 @@ const Event = () => {
         <div ref={allEventsRef}>
           <AllEvents 
             events={eventsData.filter((event) =>
-              event.name.toLowerCase().includes(searchQuery.toLowerCase())
+              event.title.toLowerCase().includes(searchQuery.toLowerCase())
             )}
           />
         </div>
         <div ref={pastEventsRef}>
-          <PastEvents events={eventsData} />
+          <PastEvents  />
         </div>
         <div ref={upcomingEventsRef}>
-          <UpcomingEvents events={eventsData} />
+          <UpcomingEvents  />
         </div>
-        {/* <div ref={liveEventsRef}>
-          <LiveEvents events={eventsData} />
-        </div> */}
+        <div ref={liveEventsRef}>
+          <LiveEvents />
+        </div>
       </div>
     </div>
   );

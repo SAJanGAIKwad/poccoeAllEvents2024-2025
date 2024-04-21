@@ -1,29 +1,35 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import EventCard from "./EventCard";
 import "../../pages_css/Event_Page_CSS/EventList.css";
+import axios from 'axios'; // Import axios
 
-const LiveEvents = ({ events }) => {
-  // Calculate the current time
-  const currentTime = new Date();
+const LiveEvents = () => {
+ const [liveEvents, setLiveEvents] = useState([]);
 
-  // Filter events that are live
-  const liveEvents = events.filter(event => {
-    const eventStartTime = new Date(event.date + ' ' + event.startTime);
-    const eventEndTime = new Date(event.date + ' ' + event.endTime);
+ useEffect(() => {
+    const fetchLiveEvents = async () => {
+      try {
+        const response = await axios.get('/live-events'); // Use axios.get
+        setLiveEvents(response.data); // Access data with response.data
+        console.log(liveEvents);
+      } catch (error) {
+        console.error('Error fetching live events:', error);
+      }
+    };
 
-    return eventStartTime <= currentTime && eventEndTime >= currentTime;
-  });
+    fetchLiveEvents();
+ }, []);
 
-  return (
+ return (
     <>
       <h2>Live Events</h2>
       <div className="event-list">
         {liveEvents.map(event => (
-          <EventCard key={event.id} event={event} />
+          <EventCard key={event._id} event={event} /> 
         ))}
       </div>
     </>
-  );
+ );
 };
 
 export default LiveEvents;

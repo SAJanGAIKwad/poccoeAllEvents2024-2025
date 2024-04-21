@@ -1,26 +1,34 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import EventCard from "./EventCard";
 import "../../pages_css/Event_Page_CSS/EventList.css";
+import axios from 'axios'; // Import axios here
 
-const PastEvents = ({ events }) => {
-  const pastEvents = events.filter(
-    
-    (event) =>{
-        const eventEndTime = new Date(event.date + ' ' + event.endTime);
-        return eventEndTime <= new Date();
-    } 
-  );
+const PastEvents = () => {
+ const [pastEvents, setPastEvents] = useState([]);
 
-  return (
-    <div>
+ useEffect(() => {
+    const fetchPastEvents = async () => {
+      try {
+        const response = await axios.get('/past-events');
+        setPastEvents(response.data);
+      } catch (error) {
+        console.error('Error fetching past events:', error);
+      }
+    };
+
+    fetchPastEvents();
+ }, []);
+
+ return (
+    <>
       <h2>Past Events</h2>
       <div className="event-list">
         {pastEvents.map(event => (
-          <EventCard key={event.id} event={event} />
+          <EventCard key={event._id} event={event} /> // Assuming event._id is the unique identifier
         ))}
       </div>
-    </div>
-  );
+    </>
+ );
 };
 
 export default PastEvents;
