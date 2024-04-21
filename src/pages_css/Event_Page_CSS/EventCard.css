@@ -1,18 +1,3 @@
-
-.event-card{
-  min-width: 10px;
-  position: relative;
-  margin: 8vh 8vh;
-  background-color: #faf79ec4;
-  border-radius: 5px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  transition: transform 0.4s ;
-}
-
 .event-card-image img{
   width: 100vh;
   /* height: auto; */
@@ -20,7 +5,7 @@
 }
 
 .event-card-content{
-  /* width: 100%; */
+  height: auto;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -39,15 +24,12 @@
   margin-bottom: 10px;
  }
  
- .event-card__location,
- .event-card__datetime {
+ .event-card__location{
   font-size: 14px;
   color: #666;
  }
 
- .event-card__datetime .time{
- margin-left: 10px;
- }
+
 
  
 
