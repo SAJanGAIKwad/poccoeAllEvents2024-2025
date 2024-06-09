@@ -1,6 +1,17 @@
 import React from "react";
 import "../../pages_css/Event_Page_CSS/EventCard.css";
-import Imag from "../../../src/Images/bluebit.png";
+// Helper function to format dates
+function formatDate(dateString) {
+ const date = new Date(dateString);
+ const day = date.getDate().toString().padStart(2, '0');
+ const month = (date.getMonth() + 1).toString().padStart(2, '0'); // Months are 0-based in JavaScript
+ const year = date.getFullYear();
+ const hours = date.getHours();
+ const minutes = date.getMinutes();
+ const ampm = hours >= 12 ? 'pm' : 'am';
+ const formattedTime = `${hours % 12 || 12}:${minutes.toString().padStart(2, '0')} ${ampm}`;
+ return `${day}/${month}/${year} ${formattedTime}`;
+}
 
 const EventCard = ({ event }) => (
   <div className="p-[5px] ">
@@ -27,7 +38,7 @@ const EventCard = ({ event }) => (
         </span>
       </div>
     </div>
-  </div>
+ </div>
 );
 
 export default EventCard;

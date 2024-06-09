@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-
+import { toast, ToastContainer } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 import './event-form.css'
 
@@ -22,6 +23,7 @@ const EventForm = () => {
 
     const [isSelected, setIsSelected] = useState(false);
     const [selectedFile, setSelectedFile] = useState(null);
+    const navigate = useNavigate();
 
     const handleFileChange=(event)=>{
       setSelectedFile(event.target.files[0]);
@@ -68,11 +70,6 @@ const EventForm = () => {
       });
 
       formDataToSend.append('image', selectedFile);
-
-      // console.log("form data to send is ",formDataToSend);
-      // for (let pair of formDataToSend.entries()) {
-      //   console.log(pair[0] + ' - ' + pair[1]);
-      // }
        
       try {
       
@@ -81,9 +78,12 @@ const EventForm = () => {
             'Content-Type': 'multipart/form-data'
           }
         });
-  
-    
-        console.log(response.data); 
+
+        toast.success("Event created Successfully",{autoClose:3000});
+        setTimeout(() => {
+          navigate('/event');
+        },3000);
+
   
       } catch (error) {
         console.error("Error submitting event:", error);
@@ -95,7 +95,20 @@ const EventForm = () => {
 
    
     return (
+
         <div className="form-container">
+            <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="colored"
+            />
             <form id='event-form' onSubmit={handleSubmit}>
 
                 <div className="event-title">
