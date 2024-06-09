@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useContext } from "react";
 import { UserContext } from "../../src/UserContext";
-
 const HamburgerMenu = () => {
     return (
         <>
@@ -23,10 +22,13 @@ const CrossMenu = () => {
 }
 
 const Navbar = () => {
-    const { user } = useContext(UserContext);
+    const { user, setUser } = useContext(UserContext);
     const [isOpen, setIsOpen] = useState(false);
     const toggleNavbar = () => {
         setIsOpen(!isOpen);
+    }
+    async function logout() {
+        setUser(null);
     }
 
     //Mobile View Pages Links
@@ -76,11 +78,16 @@ const Navbar = () => {
                             <path fillRule="evenodd" d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z" clipRule="evenodd" />
                         </svg>
                     </Link>
-                    {!!user && (
+                    <div>
                         <div>
-                            {user.name}
+                            {!user ? (
+                                <Link exact to="/user-login">Login</Link>
+                            ) : (
+                                <Link exact to="/" onClick={logout}>Logout</Link>
+                            )}
                         </div>
-                    )}
+
+                    </div>
                 </div>
             </header>
             <ul className={`md:hidden items-center justify-self-center font-medium text-2xl text-white pb-12 absolute  z-40 md:static bg-nc top-19 w-full h-full pl-[70px] transition-all duration-1000 ease-out ${isOpen ? 'left-0 opacity-100' : 'left-[-990px] opacity-0'}`}>

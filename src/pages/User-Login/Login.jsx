@@ -71,7 +71,7 @@ const Login = () => {
                     <form className="max-w-md mx-auto" onSubmit={handleSubmit}>
                         <div className='w-[400px]'>
                             <div className='flex items-center rounded-2xl'>
-                                <MdMail className='mx-2'/>
+                                <MdMail className='mx-2' />
                                 <input type="email"
                                     placeholder="your@email.com"
                                     value={email}
@@ -86,7 +86,7 @@ const Login = () => {
                                     onChange={ev => setPassword(ev.target.value)} />
                             </div>
                             <p className='text-rose-700'>{formErrors.password}</p>
-                            <button className="primary">Login</button>
+                          <button className="primary">Login</button>
                             <div className='py-3 flex justify-center text-sky-600 font-bold'>
                                 <Link to={'/forgot-password'}>Forgot Password</Link>
                             </div>
