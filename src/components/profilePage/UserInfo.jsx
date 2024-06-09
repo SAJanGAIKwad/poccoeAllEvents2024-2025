@@ -1,10 +1,9 @@
 import {useContext, useState} from "react";
-import {UserContext} from "../UserContext.jsx";
+import {UserContext} from "../../UserContext.jsx";
 import {Navigate, useParams} from "react-router-dom";
 import axios from "axios";
-import AccountNav from "./AccountNav.jsx";
 
-export default function AccountPage() {
+export default function UserPage() {
   const [redirect,setRedirect] = useState(null);
   const {ready,user,setUser} = useContext(UserContext);
   let {subpage} = useParams();
@@ -31,10 +30,11 @@ export default function AccountPage() {
   }
   return (
     <div>
-      <AccountNav />
       {subpage === 'profile' && (
-        <div className="text-center max-w-lg mx-auto">
-          Logged in as {user.name} ({user.email})<br />
+        <div className="">
+          <h2 className="mt-10 text-lg font-semibold">{user.name}</h2>
+          <p className="text-gray-600">({user.email})</p>
+          <br />
           <button onClick={logout} className="primary max-w-sm mt-2">Logout</button>
         </div>
       )}

@@ -1,6 +1,7 @@
 import React from "react";
 import "../../pages_css/Event_Page_CSS/EventCard.css";
 // Helper function to format dates
+
 function formatDate(dateString) {
  const date = new Date(dateString);
  const day = date.getDate().toString().padStart(2, '0');
