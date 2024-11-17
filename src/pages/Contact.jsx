@@ -2,8 +2,8 @@ import React from 'react'
 import '../pages_css/Contact.css'
 const Contact = () => {
     return (
-                <section className="contact section" id="contact" data-aos="zoom-in">
-                    <div className="container">
+                <section className="contact section pt-16" id="contact" data-aos="zoom-in">
+                    <div className="container pt-16">
                         <div className="row">
                             <div className="contact-form">
                                 <div className="row">

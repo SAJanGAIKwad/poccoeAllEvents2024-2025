@@ -61,7 +61,7 @@ const Register = () => {
     return (
         <>
             <ToastContainer />
-            <div className="mt-4 grow flex items-center justify-around">
+            <div className="mt-4 grow flex items-center justify-around pt-16">
                 <div className="mb-64 shadow-2xl rounded-lg p-10">
                     <h1 className="text-4xl text-center mb-4">Register</h1>
                     <form className="max-w-md mx-auto" onSubmit={handleSubmit1}>

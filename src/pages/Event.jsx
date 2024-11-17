@@ -80,7 +80,7 @@ axios.defaults.baseURL = 'http://localhost:3001/api/events';
 
 
   return (
-    <div className="app">
+    <div className="app bg-gray-100 pt-16">
       <Header
         scrollToSection={scrollToSection}
         // Passing the search query and handler to the Header component
